@@ -7,93 +7,15 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-export class AgentTable extends Component {
+import { connect } from "react-redux";
+
+class AgentTable extends Component {
   state = {
     columns: [
       { id: "id", label: "ID" },
       { id: "agentName", label: "Agent Name" },
       { id: "agentAge", label: "Agent Age" },
       { id: "jobTitle", label: "Job Title" },
-    ],
-    rows: [
-      {
-        id: "1",
-        agentName: "nada yousry",
-        agentAge: "25",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "2",
-        agentName: "mai mohamed",
-        agentAge: "26",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "3",
-        agentName: "omnia Ahmed",
-        agentAge: "26",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "4",
-        agentName: "nada yousry",
-        agentAge: "25",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "5",
-        agentName: "nada yousry",
-        agentAge: "25",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "6",
-        agentName: "mai mohamed",
-        agentAge: "26",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "7",
-        agentName: "omnia Ahmed",
-        agentAge: "26",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "8",
-        agentName: "nada yousry",
-        agentAge: "25",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "9",
-        agentName: "nada yousry",
-        agentAge: "25",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "10",
-        agentName: "nada yousry",
-        agentAge: "25",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "11",
-        agentName: "mai mohamed",
-        agentAge: "26",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "12",
-        agentName: "omnia Ahmed",
-        agentAge: "26",
-        jobTitle: "front-end developer",
-      },
-      {
-        id: "13",
-        agentName: "nada yousry",
-        agentAge: "25",
-        jobTitle: "front-end developer",
-      },
     ],
     page: 0,
     rowsPerPage: 5,
@@ -109,6 +31,8 @@ export class AgentTable extends Component {
     console.log(this.state.page);
   };
   render() {
+    console.log(this.state);
+    console.log(this.props);
     return (
       <div className="container">
         <Paper className="">
@@ -124,7 +48,7 @@ export class AgentTable extends Component {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {this.state.rows
+                {this.props.rows
                   .slice(
                     this.state.page * this.state.rowsPerPage,
                     this.state.page * this.state.rowsPerPage +
@@ -150,7 +74,7 @@ export class AgentTable extends Component {
                   <TablePagination
                     rowsPerPageOptions={[{ label: "All", value: -1 }]}
                     colSpan={4}
-                    count={this.state.rows.length}
+                    count={this.props.rows.length}
                     rowsPerPage={this.state.rowsPerPage}
                     page={this.state.page}
                     onChangePage={this.handleChangePage}
@@ -165,3 +89,14 @@ export class AgentTable extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  console.log(state);
+  console.log(state.AgentReducer);
+  //   set a new state property
+  return {
+    rows: state.AgentReducer,
+  };
+}
+
+export default connect(mapStateToProps)(AgentTable);
