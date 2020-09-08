@@ -137,9 +137,7 @@ export class AgentTable extends Component {
                           const value = row[column.id];
                           return (
                             <TableCell key={column.id} align={column.align}>
-                              {column.format && typeof value === "id"
-                                ? column.format(value)
-                                : value}
+                              {column.format ? column.format(value) : value}
                             </TableCell>
                           );
                         })}
