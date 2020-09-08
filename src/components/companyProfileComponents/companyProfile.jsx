@@ -3,6 +3,9 @@ import { Inputs } from "./inputField";
 import { SubmitButton } from "./submitButton";
 import * as Yup from "yup";
 import { Formik } from "formik";
+
+import { requestOutput } from "./../../redux/companyProfileData/action";
+import { connect } from "react-redux";
 import {
   Box,
   FormGroup,
@@ -12,7 +15,7 @@ import {
   FormControl,
 } from "@material-ui/core";
 import { SelectField } from "./selectField";
-export class CompanyProfile extends Component {
+class CompanyProfile extends Component {
   renderCompanyProfileForm = (formikProps) => {
     return (
       <form
@@ -88,12 +91,16 @@ export class CompanyProfile extends Component {
           companyStartDate: "",
           companySlogan: "",
         }}
-        onSubmit={(data) => console.log("submitted")}
+        onSubmit={(data) => {
+          console.log("submitted", data);
+          this.props.requestOutput(data);
+        }}
         validationSchema={Yup.object().shape({
           companyName: Yup.string()
             .max(30, "Name is too long")
             .required("Please Write a company Name"),
-          companyFeilds: Yup.string().required("Please select company feild"),
+          companyFeilds: Yup.string(),
+          //   .required("Please select company feild"),
           companyStartDate: Yup.string().required(
             "Please Write a company start date"
           ),
@@ -107,3 +114,4 @@ export class CompanyProfile extends Component {
     );
   }
 }
+export default connect(null, { requestOutput })(CompanyProfile);

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MenuItem, Select, FormControl } from "@material-ui/core";
+import { MenuItem, Select } from "@material-ui/core";
 
 export class SelectField extends Component {
   state = {

@@ -3,7 +3,7 @@ import "./App.css";
 import { Container } from "@material-ui/core";
 import { BrowserRouter, Route } from "react-router-dom";
 import SideBar from "../components/shared/sidebar";
-import { CompanyProfile } from "../components/companyProfileComponents/companyProfile.jsx";
+import CompanyProfile from "../components/companyProfileComponents/companyProfile.jsx";
 import { AgentTable } from "../components/agentComponents/agentTable.jsx";
 class App extends Component {
   render() {
