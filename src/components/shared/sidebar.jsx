@@ -14,6 +14,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import RecentActorsIcon from "@material-ui/icons/RecentActors";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import { Link, NavLink } from "react-router-dom";
 import "./sidebar.css";
 class SideBar extends Component {
   state = {
@@ -62,19 +63,25 @@ class SideBar extends Component {
             </IconButton>
           </Box>
           <List>
-            <ListItem>
-              <ListItemIcon>
-                <RecentActorsIcon></RecentActorsIcon>
-              </ListItemIcon>
-              <ListItemText primary="Company Profile" />
-            </ListItem>
+            <NavLink to="/" onClick={this.handleDrawerClose}>
+              <ListItem button>
+                <ListItemIcon>
+                  <PermIdentityIcon></PermIdentityIcon>
+                </ListItemIcon>
+                <ListItemText primary="Agent Data" />
+              </ListItem>
+            </NavLink>
+
             <Divider />
-            <ListItem>
-              <ListItemIcon>
-                <PermIdentityIcon></PermIdentityIcon>
-              </ListItemIcon>
-              <ListItemText primary="Agent Data" />
-            </ListItem>
+
+            <NavLink to="/company-profile" onClick={this.handleDrawerClose}>
+              <ListItem button>
+                <ListItemIcon>
+                  <RecentActorsIcon></RecentActorsIcon>
+                </ListItemIcon>
+                <ListItemText primary="Company Profile" />
+              </ListItem>
+            </NavLink>
           </List>
         </Drawer>
 
