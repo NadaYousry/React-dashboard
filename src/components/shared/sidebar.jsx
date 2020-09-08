@@ -14,7 +14,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import RecentActorsIcon from "@material-ui/icons/RecentActors";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./sidebar.css";
 class SideBar extends Component {
   state = {
