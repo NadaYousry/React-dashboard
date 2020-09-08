@@ -91,9 +91,7 @@ class AgentTable extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
-  console.log(state.AgentReducer);
-  //   set a new state property
+  // set a new state property
   return {
     rows: state.AgentReducer,
   };
