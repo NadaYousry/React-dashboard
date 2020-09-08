@@ -26,14 +26,13 @@ export class SelectField extends Component {
 
   handleChange = (event) => {
     this.setState({ feild: event.target.value });
-  };
-  handleDateChange = (date) => {
-    this.setState({ selectedDate: date });
+    console.log(this.state.feild);
+    console.log(this.props);
   };
   render() {
     return (
       <Select
-        name="companyFeilds"
+        name={this.props.name}
         labelId="selectLabel"
         value={this.state.feild}
         onChange={this.handleChange}

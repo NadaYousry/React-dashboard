@@ -24,29 +24,53 @@ export class CompanyProfile extends Component {
             <Grid container spacing={3}>
               <Grid item xs={6}>
                 <Inputs type="text" name="companyName" label="Company Name" />
+
+                {formikProps.errors.companyName && (
+                  <Typography color="secondary">
+                    {formikProps.errors.companyName}
+                  </Typography>
+                )}
               </Grid>
               <Grid item xs={6}>
                 <FormControl fullWidth>
                   <InputLabel id="selectLabel">Company Feild</InputLabel>
-                  <SelectField />
+                  <SelectField name="companyFeilds" />
                 </FormControl>
+
+                {formikProps.errors.companyFeilds && (
+                  <Typography color="secondary">
+                    {formikProps.errors.companyFeilds}
+                  </Typography>
+                )}
               </Grid>
               <Grid item xs={6}>
                 <Inputs
                   type="date"
-                  name="CompanyStartDate"
+                  name="companyStartDate"
                   label="Company Start Date"
                   inputLabelProps={{
                     shrink: true,
                   }}
                 />
+
+                {formikProps.errors.companyStartDate && (
+                  <Typography color="secondary">
+                    {formikProps.errors.companyStartDate}
+                  </Typography>
+                )}
               </Grid>
               <Grid item xs={6}>
                 <Inputs
                   type="text"
-                  name="CompanySlogan"
+                  name="companySlogan"
                   label="Company Slogan"
                 />
+
+                {formikProps.errors.companySlogan && (
+                  <Typography color="secondary">
+                    {formikProps.errors.companySlogan}
+                  </Typography>
+                )}
               </Grid>
             </Grid>
           </Box>
@@ -57,7 +81,27 @@ export class CompanyProfile extends Component {
   };
   render() {
     return (
-      <Formik>
+      <Formik
+        initialValues={{
+          companyName: "",
+          companyFeilds: "",
+          companyStartDate: "",
+          companySlogan: "",
+        }}
+        onSubmit={(data) => console.log("submitted")}
+        validationSchema={Yup.object().shape({
+          companyName: Yup.string()
+            .max(30, "Name is too long")
+            .required("Please Write a company Name"),
+          companyFeilds: Yup.string().required("Please select company feild"),
+          companyStartDate: Yup.string().required(
+            "Please Write a company start date"
+          ),
+          companySlogan: Yup.string()
+            .max(10, "Slogan is too long")
+            .required("Please Write a company slogan"),
+        })}
+      >
         {(formikProps) => this.renderCompanyProfileForm(formikProps)}
       </Formik>
     );
