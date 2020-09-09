@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/React-dashboard/static/css/main.5347214e.chunk.css",
+    "main.js": "/React-dashboard/static/js/main.589108d1.chunk.js",
+    "main.js.map": "/React-dashboard/static/js/main.589108d1.chunk.js.map",
+    "runtime-main.js": "/React-dashboard/static/js/runtime-main.4ec0f999.js",
+    "runtime-main.js.map": "/React-dashboard/static/js/runtime-main.4ec0f999.js.map",
+    "static/js/2.c48e6f53.chunk.js": "/React-dashboard/static/js/2.c48e6f53.chunk.js",
+    "static/js/2.c48e6f53.chunk.js.map": "/React-dashboard/static/js/2.c48e6f53.chunk.js.map",
+    "index.html": "/React-dashboard/index.html",
+    "precache-manifest.7840fe38f7042f085081c36783101858.js": "/React-dashboard/precache-manifest.7840fe38f7042f085081c36783101858.js",
+    "service-worker.js": "/React-dashboard/service-worker.js",
+    "static/css/main.5347214e.chunk.css.map": "/React-dashboard/static/css/main.5347214e.chunk.css.map",
+    "static/js/2.c48e6f53.chunk.js.LICENSE.txt": "/React-dashboard/static/js/2.c48e6f53.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ec0f999.js",
+    "static/js/2.c48e6f53.chunk.js",
+    "static/css/main.5347214e.chunk.css",
+    "static/js/main.589108d1.chunk.js"
+  ]
+}
