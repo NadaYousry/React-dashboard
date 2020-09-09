@@ -32,7 +32,9 @@ export class SelectField extends Component {
   render() {
     return (
       <Select
+        fullWidth
         name={this.props.name}
+        id={this.props.name}
         labelId="selectLabel"
         value={this.state.feild}
         onChange={this.handleChange}

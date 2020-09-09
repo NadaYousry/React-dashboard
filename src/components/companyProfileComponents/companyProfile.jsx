@@ -46,6 +46,7 @@ class CompanyProfile extends Component {
                   </Typography>
                 )}
               </Grid>
+
               <Grid item xs={6}>
                 <Inputs
                   type="date"
